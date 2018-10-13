@@ -159,14 +159,19 @@ console.log(receipt);
 
         <section>
           <h3>Arguments</h3>
-          <p>Functions can accept input values, called <code>arguments</code>.</p>
+          <p>Functions can accept input values, called <strong>arguments</strong>.</p>
           <pre><code class="javascript">function callKitten(kittenName){
   console.log('Come here, ' + kittenName + '!');
 }
 
 callKitten('Fluffy'); // outputs 'Come here, Fluffy!'
+</code></pre>
+        </section>
 
-function addNumbers(a, b){
+        <section>
+          <h3>Multiple Arguments</h3>
+          <p>Multiple arguments can be separated by commas.</p>
+          <pre><code class="javascript">function addNumbers(a, b){
   console.log(a + b);
 }
 
@@ -176,8 +181,8 @@ addNumbers(9, 12); // outputs 21
         </section>
 
         <section>
-          <h3>Arguments</h3>
-          <p>You can also pass <code>variables</code> into functions. These variables do not need to have the same name as the function arguments.</p>
+          <h3>Variables as Arguments</h3>
+          <p>Because variables contain values, you can also pass variables into functions. These variables do not need to have the same name as the function arguments.</p>
 <pre><code class="javascript">function addOne(num){
   let newNumber = num + 1;
   console.log('You now have ' + newNumber);
@@ -195,7 +200,7 @@ addOne(numberOfPuppies);
 
         <section>
           <h3>Let's Develop It</h3>
-          <p>Write a simple program to combine a first name and a last name inside a function. Then update the function to accept a first and last name as arguments.</p>
+          <p>Write a program that uses a function to combine a first name and a last name. Call it twice, once with your name and once with the name of your neighbor.</p>
         </section>
 
       <!-- returning values -->
