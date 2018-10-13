@@ -70,9 +70,9 @@
           </section>
 
           <section>
-          <h3>While loops</h3>
+            <h3>While loops</h3>
             <p><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/while">while</a></code> will repeat the same code over and over until some condition is met.</p>
-  <pre class="javascript"><code>let bottlesOfBeer = 99;
+            <pre class="javascript"><code>let bottlesOfBeer = 99;
 
 while (bottlesOfBeer &gt; 0) {
   console.log(bottlesOfBeer + ' bottles of beer on the wall');
@@ -88,10 +88,43 @@ while (bottlesOfBeer &gt; 0) {
           </section>
 
           <section>
+            <h3>Infinite While Loop</h3>
+            <pre class="javascript"><code>let bottlesOfBeer = 99;
+
+while (bottlesOfBeer &gt; 0) { // this will never be false!!
+  console.log(bottlesOfBeer + ' bottles of beer on the wall');
+}</code></pre>
+          </section>
+
+          <section>
+            <h3>Increment and Decrement</h3>
+            <div data-markdown>
+              - `x ++`: increment by 1
+              - `x += y`: increment by `y`
+              - `x --`: decrement by 1
+              - `x -= y`: decrement by `y`
+
+              ```js
+let bottlesOfBeer = 0;
+
+bottlesOfBeer = bottlesOfBeer + 1; // add 1
+bottlesOfBeer += 1; // this does the same thing
+bottlesOfBeer ++; // this also does the same thing
+              ```
+            </div>
+          </section>
+
+          <section>
             <h3>For loops</h3>
-            <p><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for">for</a></code> loops are very similar, but you declare a counter in the statement.</p>
-  <pre><code class="javascript">// will count 1 to 10
-for (let i = 1; i &lt;= 10; i++) {
+            <p><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for">for</a></code> loops are very similar but more compact.</p>
+            <pre class="javascript"><code>let bottlesOfBeer = 99; // initialize counter
+
+while (bottlesOfBeer &gt; 0) { // set loop condition
+  console.log(bottlesOfBeer + ' bottles of beer on the wall');
+  bottlesOfBeer = bottlesOfBeer - 1; // change counter
+}</code></pre>
+  <pre><code class="javascript">// initialization, condition, and change
+for (let bottlesOfBeer = 1; bottlesOfBeer &gt;= 0; bottlesOfBeer--) {
   console.log(i);
 }</code></pre>
           </section>
@@ -116,7 +149,7 @@ for (let i = 1; i &lt;= 100; i++) {
 
           <section>
           <h3>Break</h3>
-            <p>To exit a loop, use the <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/break">break</a></code> statement.</p>
+            <p>To exit a loop before the condition is false, use <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/break">break</a></code>.</p>
   <pre><code class="javascript">// Count from 100 to 200
 for (let i = 100; i &lt;= 200; i++) {
   console.log('Testing ' + i);
