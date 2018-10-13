@@ -14,6 +14,7 @@
 
     <link rel="stylesheet" href="dist/css/reveal.css">
     <link rel="stylesheet" href="dist/css/default.css" id="theme">
+    <link rel="stylesheet" href="plugin/highlight/styles/atom-one-dark-reasonable.css" id="theme">
 
     <!-- For syntax highlighting -->
     <!-- light editor --> <link rel="stylesheet" href="dist/css/light.css">
@@ -25,7 +26,7 @@
     <!-- If the query includes 'print-pdf', include the PDF print sheet -->
     <script>
       if( window.location.search.match( /print-pdf/gi ) ) {
-        var link = document.createElement( 'link' );
+        let link = document.createElement( 'link' );
         link.rel = 'stylesheet';
         link.type = 'text/css';
         link.href = 'dist/css/print/pdf.css';
@@ -62,11 +63,11 @@
         <section>
         <h3>Code Search</h3>
         <p>In this code, spot the comment, variables, and operators.</p>
-<pre><code class="javascript">var billPreTip = 10;
-var tipPercent = 0.15; // Can be changed
+<pre><code class="javascript">let billPreTip = 10;
+let tipPercent = 0.15; // Can be changed
 
-var billTip = billPreTip * tipPercent;
-var receipt = 'Meal: ' + billPreTip + ' Tip: ' + billTip +
+let billTip = billPreTip * tipPercent;
+let receipt = 'Meal: ' + billPreTip + ' Tip: ' + billTip +
 ' Total: ' + (billPreTip + billTip);
 
 console.log(receipt);
@@ -82,9 +83,23 @@ console.log(receipt);
         </section>
 
         <section>
+          <h3>Real Function Example</h3>
+          <div data-markdown>
+            1. Write instructions on a piece of paper, describing how to fetch a pencil.
+            2. Show the paper to your neighbor and ask them to follow the instructions.
+            3. Pass the paper to someone else.
+            4. The new owner asks their neighbor to follow the instructions.
+            ---
+
+            The paper is a function and its instructions can be followed multiple times by different people.
+
+          </div>
+        </section>
+
+        <section>
           <h3>Declaring Functions</h3>
           <p>To declare (create) a function, you can give it a name, then include all the code for the function inside curly brackets <code>{}</code></p>
-<pre><code class="javascript">function parrotFacts() {
+<pre><code class="javascript">function printParrotFacts() {
   console.log('Some parrot species can live for over 80 years');
   console.log('Kakapos are a critically endangered flightless parrot');
 }
@@ -94,26 +109,58 @@ console.log(receipt);
 
         <section>
           <h3>Using Functions</h3>
-          <p>To invoke (use) a function, you type its name, followed by parenthesis <code>()</code></p>
-<pre><code class="javascript"> parrotFacts();</code></pre>
+          <p>To call (execute) a function, you type its name, followed by parenthesis <code>()</code></p>
+<pre><code class="javascript"> printParrotFacts();</code></pre>
           <p>We'll talk about what can go inside those parenthesis in a minute! For now, leave them empty.</p>
         </section>
 
         <section>
           <h3>What's going on here?</h3>
-          <p>A function is a group of code you can reuse many times. Whenever you invoke a function by using it's name, you tell the browser to run the code inside the function.</p>
+          <p>A function is a block of code you can reuse many times. Whenever you call a function by using its name, you tell the browser to run the code inside the function.</p>
           <p>You must declare a function before you can use it.</p>
         </section>
 
         <section>
+          <h3>Functions in Variables</h3>
+          <div data-markdown>
+            Most functions have a variable pointing to them with a descriptive name, just like any other value.
+
+            (If there is no name, it's called an "anonymous" function.)
+          </div>
+
+          <svg width="200" height="80">
+            <rect x="90" y="0" width="100" height="80" style="fill:rgb(255,255,255);stroke-width:4;stroke:rgb(0,0,0)" />
+            <text x="0" y="20" font-family="Verdana" font-size="14" fill="black">makeTea ➡</text>
+            <text x="100" y="20" font-family="Verdana" font-size="14" fill="black">
+            <tspan x="100">1. ...</tspan>
+            <tspan x="100" dy="20">2. ...</tspan>
+            <tspan x="100" dy="20">3. ...</tspan>
+            </text>
+          </svg>
+        </section>
+
+        <section>
           <h3>Let's Develop It</h3>
-          <p>Write a function that outputs a sentence. Then invoke that function later in your code.</p>
+          <p>Write a function that outputs a sentence. Then call that function later in your code.</p>
+        </section>
+
+        <section>
+          <h3>Real Argument Example</h3>
+          <div data-markdown>
+            1. Change instructions on paper to explain how to fetch anything (call it `THING`).
+            2. On another piece of paper write `THING = ` followed by something to fetch.
+            2. Show both papers to your neighbor and ask them to follow the instructions, replacing `THING` with whatever the other paper says.
+
+            ---
+            The second paper is a function "argument". It's a variable!
+
+          </div>
         </section>
 
         <section>
           <h3>Arguments</h3>
           <p>Functions can accept input values, called <code>arguments</code>.</p>
-<pre><code class="javascript">function callKitten(kittenName){
+          <pre><code class="javascript">function callKitten(kittenName){
   console.log('Come here, ' + kittenName + '!');
 }
 
@@ -132,13 +179,13 @@ addNumbers(9, 12); // outputs 21
           <h3>Arguments</h3>
           <p>You can also pass <code>variables</code> into functions. These variables do not need to have the same name as the function arguments.</p>
 <pre><code class="javascript">function addOne(num){
-  var newNumber = num + 1;
+  let newNumber = num + 1;
   console.log('You now have ' + newNumber);
 }
 
 // Declare variables
-var numberOfKittens = 5;
-var numberOfPuppies = 4;
+let numberOfKittens = 5;
+let numberOfPuppies = 4;
 
 // Use them in functions
 addOne(numberOfKittens);
@@ -161,7 +208,7 @@ addOne(numberOfPuppies);
 
 console.log(square(4));       // outputs '16'
 
-var squareOfFive = square(5); // squareOfFive equals '25'
+let squareOfFive = square(5); // squareOfFive equals '25'
 </code></pre>
           <p><code>return</code> will immediately end a function.</p>
         </section>
@@ -182,7 +229,7 @@ var squareOfFive = square(5); // squareOfFive equals '25'
         <section>
           <h3>Global Scope</h3>
           <p>A variable declared outside of a function has a <code>global scope</code> and can be accessed anywhere, even inside of functions.</p>
-<pre><code class="javascript">var awesomeGroup = 'Girl Develop It'; // Global scope
+<pre><code class="javascript">let awesomeGroup = 'Girl Develop It'; // Global scope
 
 function whatIsAwesome() {
   console.log(awesomeGroup + ' is pretty awesome.'); // Will work
@@ -196,7 +243,7 @@ whatIsAwesome();
           <h3>Local Scope</h3>
           <p>A variable declared inside a function has a <code>local scope</code> and can only be accessed within that function.</p>
 <pre><code class="javascript">function whatIsAwesome() {
-  var awesomeGroup = 'Girl Develop It';              // Local scope
+  let awesomeGroup = 'Girl Develop It';              // Local scope
   console.log(awesomeGroup + ' is pretty awesome.'); // Will work
 }
 
@@ -216,8 +263,8 @@ console.log(awesomeGroup + ' is pretty awesome.'); // Won't work
         <section>
           <h3>Boolean Variables</h3>
           <p>Boolean variables represent the logical values <code>true</code> and <code>false</code></p>
-<pre><code class="javascript">var catsAreBest = true;
-var dogsRule = false;
+<pre><code class="javascript">let catsAreBest = true;
+let dogsRule = false;
 </code></pre>
         </section>
         <section>
@@ -225,9 +272,9 @@ var dogsRule = false;
           <p>Some values are considered <code><a href="https://developer.mozilla.org/en-US/docs/Glossary/Falsy">falsy</a></code> and will evaluate to <code>false</code> in a Boolean context.</p>
           <pre><code class="javascript">// the following variables will evaluate as false
 
-var myName = '';
-var numOfKids = 0;
-var isMarried;     // remember a variable with no value is undefined</code></pre>
+let myName = '';
+let numOfKids = 0;
+let isMarried;     // remember a variable with no value is undefined</code></pre>
           <p><code>null</code> and <code>NaN</code> will also evaluate as <code>false</code>.</p>
           <p>Everything else evaluates as <code>true</code>.</p>
           </section>
@@ -246,7 +293,7 @@ var isMarried;     // remember a variable with no value is undefined</code></pre
   // statements to execute
 }
 </code></pre>
-<pre><code class="javascript">var age = 30;
+<pre><code class="javascript">let age = 30;
 
 if (age &gt; 18) {
   console.log('You are an adult');
@@ -331,7 +378,7 @@ if (age &gt; 18) {
         <section>
           <h3>The if/else statement</h3>
           <p>Use <code>else</code> to provide an alternate set of instructions.</p>
-<pre><code class="javascript">var age = 30;
+<pre><code class="javascript">let age = 30;
 
 if (age &gt;= 16) {
   console.log('Yay, you can drive!');
@@ -345,7 +392,7 @@ if (age &gt;= 16) {
         <section>
           <h3>The if/else statement</h3>
           <p>If you have multiple conditions, you can use <code>else if</code>.</p>
-<pre><code class="javascript">var age = 30;
+<pre><code class="javascript">let age = 30;
 
 if (age &gt;= 35) {
   console.log('You can vote AND run for President!');
@@ -404,8 +451,8 @@ if (age &gt;= 35) {
         <section>
           <h3>Using logical operators</h3>
           <p>You can use these operators to combine conditions.</p>
-<pre><code class="javascript">var age = 30;
-var yearsAsCitizen = 30;
+<pre><code class="javascript">let age = 30;
+let yearsAsCitizen = 30;
 
 if (age &gt;=30 &amp;&amp; yearsAsCitizen &gt; 9) {
   console.log('You can run for the Senate!');
@@ -467,7 +514,7 @@ if (age &gt;=30 &amp;&amp; yearsAsCitizen &gt; 9) {
           { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
           { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
           { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-          { src: 'plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+          { src: 'plugin/highlight/highlight.pack.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
           { src: 'plugin/zoom-js/zoom.js', async: true },
           { src: 'plugin/notes/notes.js', async: true },
                     { src: 'plugin/accessibility-helper/js/accessibility-helper.js', async: true, condition: function() { return !!document.body.classList; } }
