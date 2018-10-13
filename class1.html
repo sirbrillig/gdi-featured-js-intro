@@ -14,6 +14,7 @@
 
     <link rel="stylesheet" href="dist/css/reveal.css">
     <link rel="stylesheet" href="dist/css/default.css" id="theme">
+    <link rel="stylesheet" href="plugin/highlight/styles/atom-one-dark-reasonable.css" id="theme">
 
     <!-- For syntax highlighting -->
     <!-- light editor --> <link rel="stylesheet" href="dist/css/light.css">
@@ -25,7 +26,7 @@
     <!-- If the query includes 'print-pdf', include the PDF print sheet -->
     <script>
       if( window.location.search.match( /print-pdf/gi ) ) {
-        var link = document.createElement( 'link' );
+        let link = document.createElement( 'link' );
         link.rel = 'stylesheet';
         link.type = 'text/css';
         link.href = 'dist/css/print/pdf.css';
@@ -110,7 +111,8 @@
           <h3>What is JavaScript?</h3>
           <ul>
             <li>Created by Brendan Eich as "LiveScript" in 1995, which got renamed to "JavaScript"</li>
-            <li>Standardized by the <b>ECMAScript</b> specifications. This class covers <a href="http://www.ecma-international.org/ecma-262/5.1/">ES5</a> (standardized in 2009)</li>
+            <li>Standardized as <b>ECMAScript</b> (ES) in 1997. Slowly evolved as ECMAScript 2 (1998), ES 3 (1999).</p>
+            <li>Eventually ES5 (2009), then ES2015, ES2016, etc.</li>
             <li>A <b>client-side processing language</b>. A browser reads the code and runs it directly.</li>
             <li>Interfaces with <b>HTML</b> & <b>CSS</b>.</li>
             <li>Lets you build dynamic webpages that respond to input from users.</li>
@@ -145,13 +147,6 @@
           <h3>What can JavaScript do?</h3>
           <p>Drawing & animation</p>
           <a href="https://gyazo.com/6e183501f7ae5df7f07d37b9513ccfb9"><img src="https://i.gyazo.com/6e183501f7ae5df7f07d37b9513ccfb9.gif" alt="https://gyazo.com/6e183501f7ae5df7f07d37b9513ccfb9"/></a>
-        </section>
-
-        <section>
-          <h3>What can JavaScript do?</h3>
-          <p>
-            <a href="https://youtu.be/dvG9FgbzK9Y">Robots</a>
-          </p>
         </section>
 
         <!-- Using JavaScript -->
@@ -270,7 +265,7 @@
               </ul>
             <li>Open your practice page.</li>
             <li>Do you see anything in the console?</li>
-            <li>Try typing in 2 + 2 and hitting enter.</li>
+            <li>Try typing in <code>2 + 2</code> and hitting enter.</li>
           </ul>
         </section>
 
@@ -280,8 +275,9 @@
           <p>Each instruction in JS is a "statement", like:</p>
 <pre><code class="javascript">console.log('Hello World!');
 console.log('I am glad to meet you');
-console.log('I am fuzzy');
+console.log(12 * 2);
 </code></pre>
+          <p>End each statement with a semicolon (<code>;</code>)</p>
         </section>
 
         <section>
@@ -322,7 +318,7 @@ console.log('Hello World!'); // Or make short comments here</code></pre>
       <!-- Variables -->
         <section>
           <h3>Variables</h3>
-          <p>Just like 'x' in algebra, a variable is a named container for a value that can change.</p>
+          <p>Just like <code>x</code> in algebra, a variable is a named container for a value that can change.</p>
           <img src="dist/img/empty-glass.jpg" alt="Empty glass" class="noborder"/>
           <p class="credit">
             <small>Photo credit: <a href="http://www.flickr.com/photos/giuliag/3570562404/" target="_blank">giulia gasparro</a> <a href="http://creativecommons.org/licenses/by-nc/2.0/" target="_blank">cc</a></small>
@@ -330,11 +326,55 @@ console.log('Hello World!'); // Or make short comments here</code></pre>
         </section>
 
         <section>
-          <h3>Declaring a Variable</h3>
-          <p>To declare (create) a variable, just type the word <code>var</code> and the variable name.</p>
-<pre><code class="javascript">var numberOfKittens;</code></pre>
-          <p>It is a good idea to give your variable a starting value. This is called initializing the variable.</p>
-<pre><code class="javascript">var numberOfKittens = 5;</code></pre>
+          <h3>Variables are a Box</h3>
+
+          <p>Variables are like a box that holds something. The variable name points to the box.</p>
+
+          <p>Use <code>let</code> to define one.</p>
+
+          <pre><code class="javascript">let myName;</code></pre>
+
+          <svg width="200" height="80">
+            <rect x="90" y="0" width="100" height="80" style="fill:rgb(255,255,255);stroke-width:4;stroke:rgb(0,0,0)" />
+            <text x="0" y="20" font-family="Verdana" font-size="14" fill="black">myName ➡</text>
+          </svg>
+        </section>
+
+        <section>
+          <h3>Values</h3>
+
+          The "value" of the variable is the contents of the box.
+
+          <div data-markdown>
+          ```js
+          let myName;
+          myName = 'Dog';
+          ```
+          </div>
+
+          <svg width="200" height="80">
+            <rect x="90" y="0" width="100" height="80" style="fill:rgb(255,255,255);stroke-width:4;stroke:rgb(0,0,0)" />
+            <text x="0" y="20" font-family="Verdana" font-size="14" fill="black">myName ➡</text>
+            <text x="120" y="45" font-family="Verdana" font-size="14" fill="black">'Dog'</text>
+          </svg>
+        </section>
+
+        <section>
+          <h3>Initializing Variables</h3>
+
+            You can also define the variable and give it a value all at once.
+
+            <div data-markdown>
+            ```js
+            let myName = 'Dog';
+            ```
+            </div>
+
+            <svg width="200" height="80">
+              <rect x="90" y="0" width="100" height="80" style="fill:rgb(255,255,255);stroke-width:4;stroke:rgb(0,0,0)" />
+              <text x="0" y="20" font-family="Verdana" font-size="14" fill="black">myName ➡</text>
+              <text x="120" y="45" font-family="Verdana" font-size="14" fill="black">'Dog'</text>
+            </svg>
         </section>
 
         <section>
@@ -361,9 +401,78 @@ console.log('Hello World!'); // Or make short comments here</code></pre>
         <section>
           <h3>Using a Variable</h3>
           <p>Once you have created a variable, you can use it in your code. Just type the name of the variable.</p>
-<pre><code class="javascript">var numberOfKittens = 5;
+<pre><code class="javascript">let numberOfKittens = 5;
 console.log(numberOfKittens);
 </code></pre>
+        </section>
+
+        <section>
+          <h3>Changing Variables</h3>
+
+          <div data-markdown>
+            You can change the values of exisiting variables.
+
+            ```js
+            let myName = 'Dog Lover';
+            console.log( myName ); // prints 'Dog Lover'
+            ```
+          </div>
+
+          <svg width="200" height="80">
+            <rect x="90" y="0" width="100" height="80" style="fill:rgb(255,255,255);stroke-width:4;stroke:rgb(0,0,0)" />
+            <text x="0" y="20" font-family="Verdana" font-size="14" fill="black">myName ➡</text>
+            <text x="100" y="45" font-family="Verdana" font-size="14" fill="black">'Dog Lover'</text>
+          </svg>
+
+          <div data-markdown>
+            ```js
+            myName = 'Cat Lover';
+            console.log( myName ); // prints 'Cat Lover'
+            ```
+          </div>
+
+          <svg width="200" height="80">
+            <rect x="90" y="0" width="100" height="80" style="fill:rgb(255,255,255);stroke-width:4;stroke:rgb(0,0,0)" />
+            <text x="0" y="20" font-family="Verdana" font-size="14" fill="black">myName ➡</text>
+            <text x="100" y="45" font-family="Verdana" font-size="14" fill="black">'Cat Lover'</text>
+          </svg>
+        </section>
+
+        <section>
+          <h3>Variables by Reference</h3>
+
+          <div data-markdown>
+            You can sometimes even have multiple variables pointing to the same box (this is only true for objects).
+
+            ```js
+            let bestFriend = { name: 'Dog' };
+            let guardian = bestFriend;
+            console.log( guardian.name ); // prints 'Dog'
+            ```
+          </div>
+          <svg width="300" height="80">
+            <rect x="90" y="0" width="150" height="80" style="fill:rgb(255,255,255);stroke-width:4;stroke:rgb(0,0,0)" />
+            <text x="0" y="20" font-family="Verdana" font-size="14" fill="black">bestFriend ➡</text>
+            <text x="0" y="50" font-family="Verdana" font-size="14" fill="black">guardian ➡</text>
+            <text x="100" y="45" font-family="Verdana" font-size="12" fill="black">{ name: 'Dog' }</text>
+          </svg>
+        </section>
+
+        <section>
+          <h3>Variables</h3>
+
+          <div data-markdown>
+            Other ways to define variables: `var` and `const`.
+
+            - `var` is an older version of `let`.
+            - `const` variables cannot have their value re-assigned.
+
+            ```js
+            const myName = 'Dog Lover';
+            console.log( myName ); // prints 'Dog Lover'
+            myName = 'Cat Lover'; // TypeError: Assignment to constant variable.
+            ```
+          </div>
         </section>
 
         <section>
@@ -376,19 +485,19 @@ console.log(numberOfKittens);
           <h3>Data Types</h3>
           <ul>
             <li><b>string</b> string of characters
-              <pre><code class="javascript">var userName = 'Jane Lane';</code></pre>
+              <pre><code class="javascript">let userName = 'Jane Lane';</code></pre>
             </li>
             <li><b>number</b> integer or floating point
-              <pre><code class="javascript">var myAge = 30;</code></pre>
+              <pre><code class="javascript">let myAge = 30;</code></pre>
             </li>
             <li><b>boolean</b> true or false
-              <pre><code class="javascript">var catsAreBest = true;</code></pre>
+              <pre><code class="javascript">let catsAreBest = true;</code></pre>
             </li>
             <li><b>undefined</b> value that hasn't been defined
-              <pre><code class="javascript">var favoriteThings;</code></pre>
+              <pre><code class="javascript">let favoriteThings;</code></pre>
             </li>
             <li><b>null</b> an explicitly empty value
-              <pre><code class="javascript">var goodPickupLines = null;</code></pre>
+              <pre><code class="javascript">let goodPickupLines = null;</code></pre>
             </li>
           </ul>
         </section>
@@ -405,8 +514,8 @@ console.log(numberOfKittens);
         <section>
           <h3>Numbers</h3>
           <p>Variables can be numbers, either integers or floats (decimals).</p>
-<pre><code class="javascript">var numberOfKittens = 5;
-var cutenessRating = 9.6;
+<pre><code class="javascript">let numberOfKittens = 5;
+let cutenessRating = 9.6;
 </code></pre>
           <p>JavaScript automatically converts integers to floats</p>
           <p><code>NaN</code> = Not-A-Number</p>
@@ -415,9 +524,9 @@ var cutenessRating = 9.6;
         <section>
           <h3>Arithmetic Operators</h3>
           <p>Once you have numbers, you can do math with them!</p>
-<pre><code class="javascript">var numberOfKittens = 5;
-var numberOfPuppies = 4;
-var numberOfAnimals = numberOfKittens + numberOfPuppies;
+<pre><code class="javascript">let numberOfKittens = 5;
+let numberOfPuppies = 4;
+let numberOfAnimals = numberOfKittens + numberOfPuppies;
 </code></pre>
         </section>
 
@@ -476,7 +585,7 @@ var numberOfAnimals = numberOfKittens + numberOfPuppies;
         <section>
           <h3>Strings</h3>
           <p>Variables can be strings (groups of characters). You put your string in single or double quotes.</p>
-<pre><code class="javascript">var kittensName = 'Fluffy';</code></pre>
+<pre><code class="javascript">let kittensName = 'Fluffy';</code></pre>
           <p>If you want to use a quote in your string, you'll need to <b>escape</b> it with a backslash.</p>
 <pre><code class="javascript">console.log('I\'d like to use an apostrophe');</code></pre>
         </section>
@@ -492,8 +601,8 @@ var numberOfAnimals = numberOfKittens + numberOfPuppies;
         <section>
           <h3>String Operators</h3>
           <p>You can put strings together with a <code>+</code>, the concatenation operator.</p>
-          <pre><code class="javascript">var kittensName = 'Fluffy ';
-var fullName = kittensName + 'McDougle';
+          <pre><code class="javascript">let kittensName = 'Fluffy ';
+let fullName = kittensName + 'McDougle';
 console.log(fullName); // Outputs 'Fluffy McDougle'
 </code></pre>
         </section>
@@ -501,7 +610,7 @@ console.log(fullName); // Outputs 'Fluffy McDougle'
         <section>
           <h3>String Operators</h3>
           <p>You can also use <code>+=</code> to add things to the end of a string.</p>
-<pre><code class="javascript">var kittensName = 'Admiral ';
+<pre><code class="javascript">let kittensName = 'Admiral ';
 kittensName += 'Snuggles';
 console.log(kittensName); // Outputs 'Admiral Snuggles'
 </code></pre>
@@ -523,9 +632,9 @@ console.log(kittensName); // Outputs 'Admiral Snuggles'
         <section>
           <h3>Combining strings and numbers</h3>
           <p>You can use concatenation to mix strings and numbers. When you do this, JavaScript will treat the number like a string.</p>
-<pre><code class="javascript">var numberOfFruit = 6;
-var typeOfFruit = 'bananas';
-var allTheFruit = 'I have ' + numberOfFruit + ' ' + typeOfFruit + '!';
+<pre><code class="javascript">let numberOfFruit = 6;
+let typeOfFruit = 'bananas';
+let allTheFruit = 'I have ' + numberOfFruit + ' ' + typeOfFruit + '!';
 console.log(allTheFruit);
 </code></pre>
         </section>
@@ -587,7 +696,7 @@ console.log(allTheFruit);
           { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
           { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
           { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-          { src: 'plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+          { src: 'plugin/highlight/highlight.pack.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
           { src: 'plugin/zoom-js/zoom.js', async: true },
           { src: 'plugin/notes/notes.js', async: true },
                     { src: 'plugin/accessibility-helper/js/accessibility-helper.js', async: true, condition: function() { return !!document.body.classList; } }
