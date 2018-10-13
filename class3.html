@@ -15,12 +15,21 @@
 
     <link rel="stylesheet" href="dist/css/reveal.css">
     <link rel="stylesheet" href="dist/css/default.css" id="theme">
+    <link rel="stylesheet" href="plugin/highlight/styles/atom-one-dark-reasonable.css" id="theme">
 
     <!-- For syntax highlighting -->
     <!-- light editor --> <link rel="stylesheet" href="dist/css/light.css">
     <!-- dark editor <link rel="stylesheet" href="lib/css/dark.css">-->
     <!-- <link rel="stylesheet" href="lib/css/zenburn.css">-->
 
+    <style>
+.reveal strong {
+  text-decoration: underline;
+}
+.fixed-first-column td code {
+  white-space: nowrap;
+}
+    </style>
     <link rel="stylesheet" href="plugin/accessibility-helper/css/accessibility-helper.css">
 
     <!-- If the query includes 'print-pdf', include the PDF print sheet -->
@@ -383,7 +392,7 @@ jolene.eat('pizza');</code></pre>
           { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
           { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
           { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-          { src: 'plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+          { src: 'plugin/highlight/highlight.pack.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
           { src: 'plugin/zoom-js/zoom.js', async: true },
           { src: 'plugin/notes/notes.js', async: true },
                     { src: 'plugin/accessibility-helper/js/accessibility-helper.js', async: true, condition: function() { return !!document.body.classList; } }
