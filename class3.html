@@ -189,9 +189,28 @@ let myFavoriteThings = ['Broccoli', 1024, 'Sherlock'];</code></pre>
           </section>
 
           <section>
+            <h3>Arrays hold Values</h3>
+            <div data-markdown>
+              An array is like many boxes with the same name.
+
+              ```js
+              let favorites = [ 'Broccoli', 'Sherlock' ];
+              ```
+            </div>
+
+            <svg width="400" height="100">
+              <rect x="130" y="0" width="80" height="80" style="fill:rgb(255,255,255);stroke-width:4;stroke:rgb(0,0,0)" />
+              <rect x="210" y="0" width="80" height="80" style="fill:rgb(255,255,255);stroke-width:4;stroke:rgb(0,0,0)" />
+              <text x="50" y="20" font-family="Verdana" font-size="14" fill="black">favorites ➡</text>
+              <text x="142" y="45" font-family="Verdana" font-size="12" fill="black">'Broccoli'</text>
+              <text x="218" y="45" font-family="Verdana" font-size="12" fill="black">'Sherlock'</text>
+            </svg>
+          </section>
+
+          <section>
             <h3>Array Length</h3>
             <p>The <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/length">length</a></code> property tells you how many things are in an array.</p>
-  <pre><code class="javascript">let rainbowColors = ['Red', 'Orange', 'Yellow', 'Green',
+            <pre><code class="javascript">let rainbowColors = ['Red', 'Orange', 'Yellow', 'Green',
 'Blue', 'Indigo', 'Violet'];
 
 console.log(rainbowColors.length);</code></pre>
@@ -199,21 +218,41 @@ console.log(rainbowColors.length);</code></pre>
 
           <section>
             <h3>Using Arrays</h3>
-            <p>You can access items with <strong>bracket notation</strong> by using the position of the item you want.</p>
+            <p>You can access items with <strong>bracket notation</strong> by using the index (position) of the item you want.</p>
   <pre><code class="javascript">let rainbowColors = ['Red', 'Orange', 'Yellow', 'Green',
 'Blue', 'Indigo', 'Violet'];
 
 let firstColor = rainbowColors[0];
 let lastColor  = rainbowColors[6];</code></pre><br>
   <p>JS arrays are <strong>zero-indexed</strong>, so counting starts at 0.</p>
+
+  <svg width="400" height="100">
+    <rect x="130" y="20" width="80" height="40" style="fill:rgb(255,255,255);stroke-width:4;stroke:rgb(0,0,0)" />
+    <rect x="210" y="20" width="80" height="40" style="fill:rgb(255,255,255);stroke-width:4;stroke:rgb(0,0,0)" />
+    <text x="170" y="10" font-family="fixed" font-size="14" fill="black">0</text>
+    <text x="240" y="10" font-family="fixed" font-size="14" fill="black">1</text>
+    <text x="0" y="20" font-family="Verdana" font-size="14" fill="black">rainbowColors ➡</text>
+    <text x="142" y="45" font-family="Verdana" font-size="12" fill="black">'Red'</text>
+    <text x="218" y="45" font-family="Verdana" font-size="12" fill="black">'Orange'</text>
+  </svg>
           </section>
 
           <section>
             <h3>Changing arrays</h3>
             <p>You can use bracket notation to change an item in an array</p>
-  <pre><code class="javascript">let myFavoriteThings = ['Broccoli', 1024, 'Sherlock'];
+  <pre><code class="javascript">let favorites = ['Broccoli', 'Sherlock'];
 
-myFavoriteThings[0] = 'Asparagus';</code></pre>
+favorites[0] = 'Asparagus';</code></pre>
+
+  <svg width="400" height="100">
+    <rect x="130" y="20" width="80" height="40" style="fill:rgb(255,255,255);stroke-width:4;stroke:rgb(0,0,0)" />
+    <rect x="210" y="20" width="80" height="40" style="fill:rgb(255,255,255);stroke-width:4;stroke:rgb(0,0,0)" />
+    <text x="170" y="10" font-family="fixed" font-size="14" fill="black">0</text>
+    <text x="240" y="10" font-family="fixed" font-size="14" fill="black">1</text>
+    <text x="50" y="20" font-family="Verdana" font-size="14" fill="black">favorites ➡</text>
+    <text x="142" y="45" font-family="Verdana" font-size="12" fill="black">'Asparagus'</text>
+    <text x="218" y="45" font-family="Verdana" font-size="12" fill="black">'Sherlock'</text>
+  </svg>
           </section>
 
           <section>
@@ -229,7 +268,24 @@ myFavoriteThings.push('Dancing');</code></pre>
             <p>Create an array of your favorite foods. <br />Print a few values onto your screen.</p>
           </section>
 
-        <!-- Arrays and loops-->
+          <section>
+            <div data-markdown>
+              ### Arrays are Stacks
+
+              Arrays have "stack" methods. Besides `push()`, there is also `pop()`, `shift()`, and `unshift()`.
+
+              ---
+
+              These work like a stack of plates at a cafeteria:
+
+              - push a plate on the top
+              - pop a plate off the top
+              - shift a plate off of the bottom
+              - unshift a plate onto the bottom
+            </div>
+          </section>
+
+          <!-- Arrays and loops-->
           <section>
             <h3>Arrays + loops = BFF</h3>
             <img src="dist/img/holding-hands.jpg" alt="Couple holding hands"/>
