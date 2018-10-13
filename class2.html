@@ -341,6 +341,20 @@ if (age &gt; 18) {
         </section>
 
         <section>
+          <h3>Conditions</h3>
+          <p>Conditions must always be a Boolean or they will coerced into a Boolean (true or false).</p>
+<pre><code class="javascript">let age = 30;
+
+if (age &gt; 18) {
+  console.log('You are an adult');
+}
+
+if (age) {
+  console.log('You are alive');
+}</code></pre>
+        </section>
+
+        <section>
           <h3>Comparison Operators</h3>
           <table class="fixed-first-column smalltext">
             <thead>
@@ -405,7 +419,9 @@ if (age &gt; 18) {
 
         <section>
           <h3>Let's Develop It</h3>
-          <p>Make a variable called "temperature". Write some code that tells you to put on a coat if it is below 50 degrees.</p>
+          <div data-markdown>
+          Make a variable called `temperature`. Write some code that tells you to put on a coat if it is below 50 degrees.
+          </div>
         </section>
 
       <!--If/else -->
