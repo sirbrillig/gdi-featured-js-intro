@@ -262,7 +262,7 @@ whatIsAwesome();
 
         <section>
           <h3>Local Scope</h3>
-          <p>A variable declared inside a function has a <code>local scope</code> and can only be accessed within that function.</p>
+          <p>A variable declared inside a function has a <strong>local scope</strong> and can only be accessed within that function.</p>
 <pre><code class="javascript">function whatIsAwesome() {
   let awesomeGroup = 'Girl Develop It';              // Local scope
   console.log(awesomeGroup + ' is pretty awesome.'); // Will work
@@ -288,19 +288,35 @@ console.log(awesomeGroup + ' is pretty awesome.'); // Won't work
 let dogsRule = false;
 </code></pre>
         </section>
+
         <section>
-          <h3>Boolean Variables</h3>
-          <p>Some values are considered <code><a href="https://developer.mozilla.org/en-US/docs/Glossary/Falsy">falsy</a></code> and will evaluate to <code>false</code> in a Boolean context.</p>
-          <pre><code class="javascript">// the following variables will evaluate as false
+          <h3>Coercion to Boolean</h3>
+          <div data-markdown>
+            When using coercion to change a non-Boolean variable to a Boolean, does it become `true` or `false`?
 
-let myName = '';
-let numOfKids = 0;
-let isMarried;     // remember a variable with no value is undefined</code></pre>
-          <p><code>null</code> and <code>NaN</code> will also evaluate as <code>false</code>.</p>
-          <p>Everything else evaluates as <code>true</code>.</p>
-          </section>
+            ```js
+            let numberOfPuppies = 4;
+            if (numberOfPuppies) {
+              console.log('I like dogs!');
+            }
+            ```
+          </div>
+        </section>
 
-      <!--If/Then-->
+        <section>
+          <h3>Truthy and Falsy</h3>
+          <div data-markdown>
+            The following are considered **"falsy"** in JavaScript because they coerce to Boolean `false`:
+
+- `""` (empty string)
+- `0`, `-0`, `NaN` (invalid number)
+- `null`, `undefined`
+
+---
+Any other value is considered **"truthy"**.
+          </div>
+        </section>
+
         <section>
           <h3>Control Flow</h3>
           <img src="dist/img/fork-path.jpg" alt="Forked path"/>
