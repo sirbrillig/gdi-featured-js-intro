@@ -191,7 +191,7 @@ addNumbers(9, 12); // outputs 21
         <section>
           <h3>Variables as Arguments</h3>
           <p>Because variables contain values, you can also pass variables into functions. These variables do not need to have the same name as the function arguments.</p>
-<pre><code class="javascript">function addOne(num){
+<pre><code class="javascript">function addOne(num) {
   let newNumber = num + 1;
   console.log('You now have ' + newNumber);
 }
@@ -242,7 +242,52 @@ let squareOfFive = square(5); // squareOfFive equals '25'
           <p>Change your function that combines the first and last name to <em>return</em> the combined name instead of printing it. Call the function and print out the result.</p>
         </section>
 
-      <!-- Variable Scope -->
+        <section>
+          <h3>Anonymous Functions</h3>
+          <div data-markdown>
+            Functions don't have to have a name, but you need to put them in a variable to use them.
+
+            ```js
+            const sayHi = function(name) {
+              console.log(name + ' says hi.');
+            };
+            sayHi('Maria'); // prints "Maria says hi."
+            ```
+
+          </div>
+        </section>
+
+        <section>
+          <div data-markdown>
+            ### Fat-arrow Functions
+
+            Anonymous functions can also be defined using a shorthand with the "fat arrow" `=>`  _after_ the parenthesis instead of using the word `function`.
+
+            ```js
+            const sayHi = (name) => {
+              console.log(name + ' says hi.');
+            };
+            sayHi('Maria'); // prints "Maria says hi."
+            ```
+          </div>
+        </section>
+
+        <section>
+          <div data-markdown>
+            ### One-line Functions
+
+            Short fat-arrow functions can be written on one line more easily.
+
+            They return the result of the last statement.
+
+            ```js
+            const getGreeting = (name) => 'Hi ' + name;
+            console.log(getGreeting('Fuzzy')); // prints "Hi Fuzzy"
+            ```
+          </div>
+        </section>
+
+        <!-- Variable Scope -->
         <section>
           <h3>Variable Scope</h3>
           <p>The scope of a variable determines where it's value is accessible throughout your program.</p>
@@ -253,7 +298,7 @@ let squareOfFive = square(5); // squareOfFive equals '25'
         <section>
           <h3>Global Scope</h3>
           <p>A variable declared outside of a function has a <strong>global scope</strong> and can be accessed anywhere, even inside of functions.</p>
-<pre><code class="javascript">let awesomeGroup = 'Girl Develop It'; // Global scope
+          <pre><code class="javascript">let awesomeGroup = 'Girl Develop It'; // Global scope
 
 function whatIsAwesome() {
   console.log(awesomeGroup + ' is pretty awesome.'); // Will work
