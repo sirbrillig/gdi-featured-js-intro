@@ -435,7 +435,7 @@ describeUser(jolene);</code></pre>
         <!-- Object Methods -->
         <section>
           <h3>Object methods</h3>
-          <p>Objects can also hold functions.</p>
+          <p>Object properties can also hold functions (called object methods).</p>
           <pre><code class="javascript">let jolene = {
   age: 21,
   hairColor: 'Auburn',
@@ -448,14 +448,13 @@ describeUser(jolene);</code></pre>
 };
           </code></pre><br>
           <p>Call object methods using dot notation:</p>
-          <pre><code class="javascript">jolene.talk();
-
-jolene.eat('pizza');</code></pre>
+          <pre><code class="javascript">jolene.talk(); // prints "Hello!"
+jolene.eat('pizza'); // prints "Yum, I love pizza"</code></pre>
         </section>
 
         <section>
           <h3>Let's Develop It</h3>
-          <p>Go back to your recipe object. Add a function called <code>letsCook</code> that says "I'm hungry! Let's cook..." with the name of your recipe title.</p>
+          <p>Go back to your recipe object. Add a new property called <code>letsCook</code> with a function that prints "I'm hungry! Let's cook..." with the name of your recipe title.</p>
           <p>Call your new method.</p>
         </section>
 
