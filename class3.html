@@ -308,28 +308,54 @@ for (let i = 0; i &lt; rainbowColors.length; i++) {
             <p>Use a <code>for</code> loop to print a list of all your favorite foods.</p>
           </section>
 
-      <!-- Objects -->
-        <section>
-          <h3>Objects</h3>
-          <img src="dist/img/matches.jpg" alt="Collection of matches"/>
-          <p class="credit">Photo credit:  <a href="https://flic.kr/p/8RnSsa">Jir&iacute; Volejn&iacute;k</a> <a href="http://creativecommons.org/licenses/by-nc-sa/2.0/">cc</a>
-        </section>
+          <!-- Objects -->
+          <section>
+            <h3>Objects</h3>
+            <img src="dist/img/matches.jpg" alt="Collection of matches"/>
+            <p class="credit">Photo credit:  <a href="https://flic.kr/p/8RnSsa">Jir&iacute; Volejn&iacute;k</a> <a href="http://creativecommons.org/licenses/by-nc-sa/2.0/">cc</a>
+          </section>
 
-        <section>
-          <h3>Objects</h3>
-          <p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Working_with_Objects">Objects</a> let us store a collection of properties.</p>
-<pre><code class="javascript">let objectName = {
+          <section>
+            <h3>Objects</h3>
+            <div data-markdown>
+              Objects store a collection of key/value pairs.
+
+              ```js
+              let bigDog = { breed: 'Great Dane', age: 5, size: 'huge' };
+              ```
+
+              They can contain multiple values like an Array, but each value must have a key, which is a string (usually without quotes).
+
+            </div>
+            <svg width="500" height="100">
+              <text x="50" y="20" font-family="Verdana" font-size="14" fill="black">bigDog ➡</text>
+              <rect x="130" y="20" width="80" height="40" style="fill:rgb(255,255,255);stroke-width:4;stroke:rgb(0,0,0)" />
+              <rect x="240" y="20" width="80" height="40" style="fill:rgb(255,255,255);stroke-width:4;stroke:rgb(0,0,0)" />
+              <rect x="350" y="20" width="80" height="40" style="fill:rgb(255,255,255);stroke-width:4;stroke:rgb(0,0,0)" />
+              <text x="150" y="10" font-family="fixed" font-size="14" fill="black">breed</text>
+              <text x="265" y="10" font-family="fixed" font-size="14" fill="black">age</text>
+              <text x="370" y="10" font-family="fixed" font-size="14" fill="black">size</text>
+              <text x="135" y="45" font-family="Verdana" font-size="12" fill="black">'Great Dane'</text>
+              <text x="248" y="45" font-family="Verdana" font-size="12" fill="black">5</text>
+              <text x="358" y="45" font-family="Verdana" font-size="12" fill="black">'huge'</text>
+            </svg>
+          </section>
+
+          <section>
+            <h3>Objects</h3>
+            <p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Working_with_Objects">Objects</a> let us store a collection of properties.</p>
+            <pre><code class="javascript">let objectName = {
   propertyName: propertyValue,
   propertyName: propertyValue
 };
-</code></pre>
-<pre><code class="javascript">let user = {
+            </code></pre>
+            <pre><code class="javascript">let user = {
   hometown: 'Atlanta, GA',
   hair: 'Auburn',
   likes: ['knitting', 'code'],
   birthday: {month: 10, day: 17}
 };</code></pre>
-        </section>
+          </section>
 
         <section>
           <h3>Accessing Objects</h3>
