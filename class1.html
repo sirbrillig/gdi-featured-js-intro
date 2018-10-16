@@ -621,6 +621,7 @@ let numberOfAnimals = numberOfKittens + numberOfPuppies;
 let fullName = kittensName + 'McDougle';
 console.log(fullName); // Outputs 'Fluffy McDougle'
 </code></pre>
+<p>(Note the space after <code>Fluffy </code>!)</p>
         </section>
 
         <section>
@@ -666,10 +667,40 @@ console.log(allTheFruit);
 </code></pre>
           <p>This is called <strong>"Coercion"</strong></p>
         </section>
+
+        <section>
+          <h3>Types Matter</h3>
+          <div data-markdown>
+            When you use `prompt()` to fill a variable, the result will always be a **string**.
+
+            ```js
+            let numberOfFingers = prompt('How many fingers do you have?');
+            let numberOfToes = prompt('How many toes do you have?');
+            let totalDigits = numberOfFingers + numberOfToes;
+            console.log('You have a total of ' + totalDigits); // prints 1010 😱
+            ```
+          </div>
+        </section>
+
+        <section>
+          <h3>Explicit Coercion</h3>
+          <div data-markdown>
+            If you want to force a variable to be used as a number, use `Number()`.
+
+            ```js
+            let numberOfFingers = prompt('How many fingers do you have?');
+            let numberOfToes = prompt('How many toes do you have?');
+            let totalDigits = Number(numberOfFingers) + Number(numberOfToes);
+            console.log('You have a total of ' + totalDigits); // prints 20
+            ```
+          </div>
+        </section>
+
         <section>
           <h3>Let's Develop It</h3>
           <p>Create a program to calculate the tip at a restaurant. It should:</p>
           <ul>
+            <li>Prompt the user for the total.</li>
             <li>Have variables for the bill <strong>pre-tip</strong> and the <strong>tip percentage</strong>.</li>
             <li>Calculate the total bill.</li>
             <li>Output a sentence like "Your total bill, with tip, is $14.75".</li>
