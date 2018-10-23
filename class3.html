@@ -134,15 +134,15 @@ for (let bottlesOfBeer = 1; bottlesOfBeer &gt; 0; bottlesOfBeer--) {
             <p>You can add other statements or logical operators inside the loops.</p>
   <pre><code class="javascript">// Count from 1 to 100
 
-for (let i = 1; i &lt;= 100; i++) {
-  if (i % 3 === 0) {
+for (let index = 1; index &lt;= 100; index++) {
+  if (index % 3 === 0) {
     // Says 'Fizz' after multiples of three
     console.log(' Fizz');
-  } else if (i % 5 === 0) {
+  } else if (index % 5 === 0) {
     // Says 'Buzz' after multiples of five
     console.log(' Buzz');
   } else {
-    console.log(i);
+    console.log(index);
   }
 }</code></pre>
           </section>
@@ -151,12 +151,12 @@ for (let i = 1; i &lt;= 100; i++) {
           <h3>Break</h3>
             <p>To exit a loop before the condition is false, use <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/break">break</a></code>.</p>
   <pre><code class="javascript">// Count from 100 to 200
-for (let i = 100; i &lt;= 200; i++) {
-  console.log('Testing ' + i);
+for (let index = 100; index &lt;= 200; index++) {
+  console.log('Testing ' + index);
 
   //Stop at the first multiple of 7
-  if (i % 7 == 0) {
-    console.log('Found it! ' + i);
+  if (index % 7 == 0) {
+    console.log('Found it! ' + index);
     break;
   }
 }</code></pre>
@@ -298,8 +298,8 @@ myFavoriteThings.push('Dancing');</code></pre>
   <pre><code class="javascript">let rainbowColors = ['Red', 'Orange', 'Yellow', 'Green',
   'Blue', 'Indigo', 'Violet'];
 
-for (let i = 0; i &lt; rainbowColors.length; i++) {
-  console.log(rainbowColors[i]);
+for (let index = 0; index &lt; rainbowColors.length; index++) {
+  console.log(rainbowColors[index]);
 }</code></pre>
           </section>
 
@@ -394,8 +394,8 @@ user.hair = 'blue';</code></pre><br>
   {name: 'Alexa',  age: 18}
 ];
 
-for (let i = 0; i &lt; users.length; i++) {
-  let user = users[i];
+for (let index = 0; index &lt; users.length; index++) {
+  let user = users[index];
   console.log(user.name + ' is ' + user.age + ' years old.');
 }</code></pre>
         </section>
@@ -472,16 +472,54 @@ jolene.eat('pizza'); // prints "Yum, I love pizza"</code></pre>
 
             ```js
             let favorites = [ 'Broccoli', 'Sherlock' ];
-            favorites.push('Donuts');
-            console.log(favorites.length); // prints "3"
+            favorites.push('Donuts'); // 'push' is a method on the array object
+            console.log(favorites.length); // 'length' is a property on the array object
+            ```
+          </div>
+        </section>
+
+        <section>
+          <h3>Deja Vu</h3>
+          <div data-markdown>
+            You've been using object properties this whole time!
+
+            (`console` is an object)
+
+            ```js
+            console.log();
+            ```
+          </div>
+        </section>
+
+        <section>
+          <h3>this</h3>
+          <div data-markdown>
+            There is a special read-only variable that any function can use called `this`.
+
+            `this` is automatically set to something, depending on how the function is called.
+          </div>
+        </section>
+
+        <section>
+          <h3>Typical this</h3>
+          <div data-markdown>
+            `this` inside an object method usually points to the object on which the method is defined.
+
+            ```js
+            let myObject = {
+              name: 'Julia',
+              greet: function() {
+                console.log("Hi, I'm " + this.name); // 'this' means myObject
+              }
+            };
             ```
           </div>
         </section>
 
         <section>
           <h3>Let's Develop It</h3>
-          <p>Go back to your recipe object. Add a new property called <code>letsCook</code> with a function that prints "I'm hungry! Let's cook..." with the name of your recipe title.</p>
-          <p>Call your new method.</p>
+          <p>Go back to your recipe object. Add a new property called <code>letsCook</code> with a function that prints "I'm hungry! Let's cook [title]" with the name of your recipe title.</p>
+          <p>Then call your new method!</p>
         </section>
 
       <!-- Final slides-->
