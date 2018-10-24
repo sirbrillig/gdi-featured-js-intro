@@ -572,6 +572,43 @@ button {
 
 					<section>
 						<div data-markdown>
+							### jQuery
+
+							DOM work can be ... a lot of work!
+
+							So there's lots of libraries to make it easier. Like `jQuery`!
+
+						</div>
+					</section>
+
+					<section>
+					  <h3>jQuery vs. JS</h3>
+						<div data-markdown>
+              ```js
+              const el = document.querySelector('.kitten-pic');
+              el.style.display = 'none';
+              ```
+
+              vs.
+
+              ```js
+              $('.kitten-pic').hide();
+              ```
+
+              See http://youmightnotneedjquery.com/
+						</div>
+					</section>
+
+					<section>
+					  <h3>Loading jQuery</h3>
+						<div data-markdown>
+						  Since jQuery is not part of JS, you have to load it before you can use it. Put this in your HTML before your own script tag:
+						</div>
+						<pre><code class="html">&#x3C;script src=&#x22;https://code.jquery.com/jquery-3.3.1.slim.min.js&#x22;&#x3E;&#x3C;/script&#x3E;</code></pre>
+					</section>
+
+					<section>
+						<div data-markdown>
 							### Let's Develop It
 
 							Let's make a web-based to-do list!
