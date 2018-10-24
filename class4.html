@@ -453,183 +453,162 @@ button {
           <p class="credit">Photo credit: <a href="https://flic.kr/p/9hBrtv" target="_blank">Eva Peris</a> <a href="http://creativecommons.org/licenses/by-nc/2.0/" target="_blank">cc</a></p>
         </section>
 
-        <section>
-          <h3>Events</h3>
-          <p>An <strong><a href="https://developer.mozilla.org/en-US/docs/Web/Events">event</a></strong> is an object that is sent when actions take place on your webpage, most often when a user interacts with your webpage.</p><br>
-          <p>For example, JavaScript creates an event when a user clicks an element.</p>
-<pre><code class="javascript">element.addEventListener('click', function(event) {
-  // code to be executed when user clicks
-});
-</code></pre>
-        </section>
+					<section>
+						<div data-markdown>
+							### Events
 
-        <section>
-          <h3>Types of Events</h3>
-          <p>There are a <a href="https://developer.mozilla.org/en-US/docs/Web/Events">variety of events</a>. Some of the more common events are:</p>
-          <ul>
-            <li><strong><a href="https://developer.mozilla.org/en-US/docs/Web/Events/click">click</a>:</strong> Occurs when the user clicks on an element</li>
-            <li><strong><a href="https://developer.mozilla.org/en-US/docs/Web/Events/mouseover">mouseover</a>:</strong> Occurs when the pointer is moved onto an element</li>
-            <li><strong><a href="https://developer.mozilla.org/en-US/docs/Web/Events/mouseout">mouseout</a>:</strong> Occurs when the pointer is moved off an element</li>
-            <li><strong><a href="https://developer.mozilla.org/en-US/docs/Web/Events/keyup">keyup</a>:</strong> Occurs when the user releases a key</li>
-            <li><strong><a href="https://developer.mozilla.org/en-US/docs/Web/Events/load_(ProgressEvent)">load</a>:</strong> Occurs when a document has been loaded</li>
-            <li><strong><a href="https://developer.mozilla.org/en-US/docs/Web/Events/focus">focus</a>:</strong> Occurs when an element gets focus</li>
-            <li><strong><a href="https://developer.mozilla.org/en-US/docs/Web/Events/blur">blur</a>:</strong> Occurs when an element loses focus</li>
-          </ul>
-        </section>
+							When something happens on a web page (eg: when a user clicks a button), an _Event_ is created.
 
-        <section>
-          <h3>Calling Functions from HTML</h3>
-          <p>You can call a function directly from your HTML code:</p>
-<pre><code class="html">&lt;button id="myBtn" onclick="sayHi()"&gt;Click Me!&lt;/button&gt;
-</code></pre>
-<pre><code class="javascript">function sayHi (event) {
-  alert('Hi!');
-};</code></pre>
-        </section>
+						</div>
+					</section>
 
-          <section>
-          <h3>Calling Functions from JavaScript</h3>
-          <p>You can call a function from the addEventListener:</p>
-<pre><code class="html">&lt;button id="myBtn"&gt;Click Me!&lt;/button&gt;
-</code></pre>
-<pre><code class="javascript">let button = document.querySelector("#myBtn");
+					<section>
+						<div data-markdown>
+							### Event Objects
 
-button.addEventListener("click", function (event) {
-  alert("Hi!");
-});</code></pre>
-<p>or</p>
-<pre><code class="javascript">let button = document.querySelector("#myBtn");
+							Events are objects with information about what happened.
 
-let sayHi = function (event) {
-  alert("Hi!");
-};
+							There are two ways to listen to events: `element.addEventListener()` in JavaScript and `onClick` (and similar attributes) in the HTML.
+						</div>
+					</section>
 
-button.addEventListener("click", sayHi);</code></pre>
-        </section>
+					<section>
+					  <script>
+					    function getKitten() {
+								const parent = window.document.querySelector( '.get-kitten' );
+								const kitten = window.document.createElement( 'img' );
+								kitten.src = 'http://placekitten.com/g/200/200';
+								parent.appendChild( kitten );
+					    }
+					  </script>
+						<div data-markdown>
+							### HTML onClick
 
+							Using HTML we can register a click handler as follows:
 
-        <section>
-          <h3>Let's Develop It</h3>
-          <p>Go back to the sample files you downloaded earlier.</p>
-          <p>Make some JavaScript code fire after a <code>mouseover</code> event.</p>
-        </section>
+						</div>
+						<pre><code class="html">&lt;button onClick="getKitten()"&gt;Get Kitten&lt;/button&gt;</code></pre>
+						<button onClick="getKitten()">Get Kitten</button>
 
-      <!-- More Events -->
-        <section>
-          <h3>Preventing Defaults</h3>
-          <img src="dist/img/donotwant.jpg" alt="A cat resisting a bath"/>
-        </section>
+						<div class="get-kitten" style="height:300px"></div>
+					</section>
 
-        <section>
-          <h3>Preventing Defaults</h3>
-          <p>Elements like links and checkboxes have default behaviors determined by the browser. However, the <code>event</code> object has a built-in method to <a href="https://developer.mozilla.org/en-US/docs/Web/API/Event/preventDefault">prevent the default behavior</a></p>
-          <p>Our anchor link in HTML</p>
-<pre><code class="html">&lt;a id="myLink" href="https://www.girldevelopit.com"&gt;GDI&lt;/a&gt;
-</code></pre>
-<p>Code to prevent going to link's href on click</p>
-<pre><code class="javascript">let link = document.querySelector("#myLink");
+					<section>
+						<div data-markdown>
+							### onClick handler
 
-link.addEventListener("click", function(event) {
-  event.preventDefault();
-});
-</code></pre>
-        </section>
+							Here's the JavaScript for that click handler.
 
-        <section>
-          <h3>currentTarget</h3>
-          <img src="dist/img/arrow.jpg" alt="Lighted arrow sign pointed downward"/>
-          <p class="credit">Photo credit: <a href="https://flic.kr/p/6ei68A" target="_blank">Alan Berning</a> <a href="http://creativecommons.org/licenses/by-nc/2.0/" target="_blank">cc</a></p>
-        </section>
+							```js
+							function getKitten() {
+								const parent = window.document.querySelector( '.get-kitten' );
+								const kitten = window.document.createElement( 'img' );
+								kitten.src = 'http://placekitten.com/g/200/200';
+								parent.appendChild( kitten );
+							}
+							```
+						</div>
+					</section>
 
-        <section>
-          <h3>currentTarget</h3>
-          <p>The event's <code><a href="https://developer.mozilla.org/en-US/docs/Web/API/Event/currentTarget">currentTarget</a></code> references the element the event listener was attached to.</p>
-          <p>Our button in HTML:</p>
-          <pre><code class="html">&lt;button id="myBtn"&gt;Click Me!&lt;/a&gt;</code></pre>
-          <p>This code adds styles and text to our clicked button</p>
-<pre><code class="javascript">myButton = document.querySelector("#myBtn");
+					<section>
+						<div data-markdown>
+							### Pure JS click handler
 
-myButton.addEventListener("click", function(event) {
-  btn = event.currentTarget;
+							You can also add the click handler function in pure JavaScript.
 
-  btn.style.backgroundColor = 'red';
-  btn.innerHTML = 'Clicked!';
-};</code></pre>
-<p>You may also see code that references the keyword <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/this">this</a></code> as the "target".
-        </section>
+							```js
+							const button = window.document.querySelector( '.get-kitten-button' );
+							button.addEventListener( 'click', getKitten );
+							```
+							 Notice that we are passing `getKitten` as a variable! We are not calling it here, but sending it to be called later. This is called a "callback".
+						</div>
+					</section>
 
-        <section>
-          <h3>Let's Develop It</h3>
-          <p>Write code that targets this link:</p>
-<pre><code class="html">&lt;a href="http://girldevelopit.com/" id="gdiLink"&gt;Girl Develop It&lt;/a&gt;
-</code></pre>
-          <p>When a user clicks the link, the page should display an error message instead of going to the Girl Develop It homepage.</p>
-        </section>
+					<section>
+						<div data-markdown>
+							### Other Events
 
-      <!-- User input -->
-        <section>
-          <h3>User Input</h3>
-          <img src="dist/img/comment-box.jpg" alt="Comment box"/>
-          <p class="credit">Photo credit: <a href="https://flic.kr/p/fnZ4RT" target="_blank">Rym DeCoster</a> <a href="http://creativecommons.org/licenses/by-nc/2.0/" target="_blank">cc</a></p>
-        </section>
+							Clicks are common events, but there are many others.
 
-        <section>
-          <h3>Forms</h3>
-          <p>You can collect information from users to use in your code. The most common method is an HTML form</p>
-<pre><code class="html">&lt;form id="userForm"&gt;
-  &lt;label for="name"&gt;First Name:&lt;/label&gt;
-  &lt;input type="text" id="firstName"/&gt;
-  &lt;input type="radio" name="married" value="Yes" checked /&gt; Yes
-  &lt;input type="radio" name="married" value="No" /&gt; No
-  &lt;input type="submit" id="submitBtn" value="Submit" /&gt;
-&lt;/form&gt;
-</code></pre>
-        </section>
+							- `mouseOver`: when a cursor is moved on to an element
+							- `mouseOut`: when a cursor is moved off of an element
+							- `keyUp`: when a key is released
+							- `load`: when the document finishes loading
+							- `focus`: when an element gets focus
+							- `blur`: when an element loses focus
+							- ...
+						</div>
+					</section>
 
-        <section>
-          <h3>Retrieving Form Data</h3>
-          <p>You retrieve the values of form elements using the <code>value</code> method.</p>
-<pre><code class="javascript">let name = document.querySelector('#firstName').value;
-console.log(name);
-</code></pre>
-          <p>You can retrieve the value of a form at any time. Even when an event like <code>blur</code> is triggered (when a form element loses focus).</p>
-        </section>
+					<section>
+						<div data-markdown>
+							### Let's Develop It
 
-        <section>
-          <h3>Radio Buttons</h3>
-          <p>Radio buttons usually do not have IDs, so you will need to use a <code>for</code> loop to get the value on each radio:</p>
-<pre><code class="javascript">let radios = document.querySelector('input[name=married]');
+							1. Create a page that has the word 'Kitten' written 25 times.
+							1. Create a button that replaces every instance of that word with 'Puppy'.
+							1. Create a button that makes every instance of that word bold.
+						</div>
+					</section>
 
-let length = radios.length;
+					<section>
+						<div data-markdown>
+							### Form input
 
-for (let i = 0; i &lt; length; i++) {
-  if (radios[i].checked) {
-    let radioButtonValue = radios[i].value;
-    // only one radio can be checked, so stop now
-    break;
+							You can use `.value` to get the input from a form field.
+
+							Try this:
+
+              </div>
+              <pre><code class="html">&lt;script&gt;
+  function showValue() {
+    alert( document.getElementById('myName').value );
   }
-}
-</code></pre>
-        </section>
+&lt;/script&gt;
+&lt;form&gt;
+  &lt;input type=&quot;text&quot; id=&quot;myName&quot; value=&quot;hi&quot; /&gt;
+  &lt;input type=&quot;button&quot; onclick=&quot;showValue()&quot; value=&quot;click me&quot;&gt;
+&lt;/form&gt;</code></pre>
+					</section>
 
-        <section>
-          <h3>Submit buttons</h3>
-          <p>If you are going to retrieve form values with the submit button, be sure to prevent the default action!</p>
-<pre><code class="javascript">let submitButton = document.querySelector('#submitBtn');
+					<section>
+						<div data-markdown>
+							### Let's Develop It
 
-submitButton.addEventListener("click", function(event) {
-  event.preventDefault();
+							Let's make a web-based to-do list!
 
-  let name = document.querySelector('#firstName').value;
-  console.log(name);
-})
-</code></pre>
-        </section>
+							Start with this html:
 
-        <section>
-          <h3>Let's Develop It</h3>
-          <p>Collect a value from the input box on the page. Use it inside a function of some kind. For example, collect a number and multiply it by five or collect a name and display a greeting.</p>
-        </section>
+							```html
+&lt;input type=&quot;text&quot; id=&quot;item-field&quot;&gt;
+&lt;input type=&quot;submit&quot; value=&quot;Add Item&quot; onClick=&quot;addItem()&quot;&gt;
+&lt;ul id=&quot;item-list&quot;&gt;
+  &lt;li&gt;Add items to this list using the form above&lt;/li&gt;
+&lt;/ul&gt;
+							```
+						</div>
+					</section>
+
+					<section>
+						<div data-markdown>
+							### Exercise Solution
+
+							Let's make a web-based to-do list!
+
+							Spoilers! (This is just one solution.)
+
+							https://codepen.io/sirbrillig/pen/MqMGXd?editors=1010
+
+						</div>
+					</section>
+
+					<section>
+						<div data-markdown>
+							### Adding Persistence
+
+							https://codepen.io/sirbrillig/pen/dqBwyP?editors=1010
+
+						</div>
+					</section>
 
       <!-- Final slides-->
         <section>
