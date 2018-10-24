@@ -30,6 +30,9 @@
 .fixed-first-column td code {
   white-space: nowrap;
 }
+button {
+  font-size: 2rem;
+}
     </style>
     <link rel="stylesheet" href="plugin/accessibility-helper/css/accessibility-helper.css">
 
@@ -158,22 +161,297 @@
             </ol>
           </section>
 
-          <section>
-            <h3>Finding Nodes</h3>
-            <img src="dist/img/search.jpg" alt="A magnifying glass"/>
-            <p class="credit">Photo credit:  <a href="https://flic.kr/p/4UokrH">Jeffery Beall</a> <a href="http://creativecommons.org/licenses/by-nc-sa/2.0/">cc</a>
-          </section>
+					<section>
+						<script>
+							function showCat() {
+								const cat = window.document.querySelector( '.kitten-pic' );
+								cat.style.visibility = 'visible';
+							}
+						</script>
+						<div data-markdown>
+							### The Web API
 
+							```js
+							function showCat() {
+							const cat = window.document.querySelector('.kitten-pic');
+							cat.style.visibility = 'visible';
+							}
+							```
+
+						</div>
+						<button onClick="showCat()">Show Cat</button>
+
+						<div class="kitten-pic" style="visibility:hidden">
+							<img src="http://placekitten.com/g/200/200" width="200" height="200">
+						</div>
+					</section>
+
+					<section>
+						<div data-markdown>
+							### The Web API
+
+							When using JavaScript inside a browser, you can access web things that are not part of the language.
+
+							These are called the "Web API".
+						</div>
+					</section>
+
+					<section>
+						<div data-markdown>
+							### Web API Methods
+
+							Many Web API functions are defined on the `window` object.
+
+							Here we use `querySelector()` to find elements on the page.
+
+							```js
+							window.document.querySelector('.kitten-pic');
+							```
+						</div>
+					</section>
+
+					<section>
+						<div data-markdown>
+							### Finding elements
+
+							If you are familiar with CSS, `querySelector()` accepts one argument: a string which is a CSS selector.
+
+							Here we are asking for the first element that has the `class` (that's the period) of `kitten-pic`.
+
+							```js
+							window.document.querySelector( '.kitten-pic' );
+							```
+
+							Which finds this:
+
+						</div>
+						<pre><code class="html">&lt;img class="kitten-pic" src="http://placekitten.com/g/200/200"&gt;</code></pre>
+					</section>
+
+					<section>
+						<div data-markdown>
+							### No element found
+
+							What if the element is not found?
+
+							`querySelector()` can return `null` if it fails to find an element.
+
+							```js
+							window.document.querySelector('.doggo'); // null
+							```
+						</div>
+					</section>
+
+					<section>
+						<div data-markdown>
+							### Finding multiple elements
+
+							What if you want to find multiple elements?
+
+							`querySelectorAll()` returns an array-like object of all the matches.
+
+							```js
+							const allSpans = window.document.querySelectorAll( 'span' );
+							allSpans.length; // 350
+							```
+						</div>
+					</section>
+
+					<section>
+						<div data-markdown>
+							### Other Methods
+
+							There are other functions to find elements.
+
+							```js
+							window.document.getElementById( 'my-id' );
+							window.document.getElementsByTagName( 'span' );
+							window.document.getElementsByClassName( 'kitten-pic' );
+							```
+						</div>
+					</section>
+
+					<section>
+						<div data-markdown>
+							### DOM Nodes
+
+							The browser keeps an internal representation of what you see on the page.
+
+							This is called the _Document Object Model_ or DOM.
+						</div>
+					</section>
+
+					<section>
+						<div data-markdown>
+							### DOM Nodes
+
+							Each element of the page that you access is called a "DOM Node".
+
+							Here, the variable `cat` holds a DOM Node object.
+
+							```js
+							const cat = window.document.querySelector( '.kitten-pic' );
+							```
+						</div>
+					</section>
+
+					<section>
+						<div data-markdown>
+							### DOM Node Properties
+
+							DOM Node objects have properties, like `style`.
+
+							`style` is an object that holds CSS as properties.
+
+							```js
+							const cat = window.document.querySelector( '.kitten-pic' );
+							cat.style.visibility; // 'hidden'
+							```
+						</div>
+					</section>
+
+					<section>
+						<div data-markdown>
+							### DOM Node Changes
+
+							We can change properties on DOM Nodes, and the changes usually take effect immediately.
+
+							```js
+							const cat = window.document.querySelector( '.kitten-pic' );
+							cat.style.visibility; // 'hidden'
+							cat.style.visibility = 'visible';
+							cat.style.visibility; // 'visible'
+							```
+						</div>
+						<div class="fragment">
+							<img src="http://placekitten.com/g/200/200">
+						</div>
+					</section>
+
+					<section>
+						<div data-markdown>
+							### CSS Property Names
+
+							If you want to access a CSS property that has a hyphen in the name, change it to camelCase.
+
+							```js
+							// This is for the CSS property `margin-top`
+							cat.style.marginTop;
+							```
+						</div>
+					</section>
+
+					<section>
+					  <script>
+					    function transformCat() {
+							  const cat = window.document.querySelector( '.kitten-pic-transform img' );
+							  cat.src = 'http://placekitten.com/g/215/215';
+					    }
+					  </script>
+						<div data-markdown>
+							### Changing HTML Properties
+
+							We can change HTML properties also.
+
+							```js
+							const cat = window.document.querySelector( '.kitten-pic' );
+							cat.src; // 'http://placekitten.com/g/200/200'
+							cat.src = 'http://placekitten.com/g/215/215';
+							```
+						</div>
+						<button onClick="transformCat()">Transform!</button>
+
+						<div class="kitten-pic-transform">
+							<img src="http://placekitten.com/g/200/200">
+						</div>
+					</section>
+
+					<section>
+					  <script>
+					    function changeCatSaying() {
+							  const cat = window.document.querySelector( '.cat-saying' );
+							  cat.innerHTML = '<em>I love you!</em>';
+					    }
+					  </script>
+						<div data-markdown>
+							### innerHTML
+
+							We can actually change all the contents of an element using the `innerHTML` property.
+
+							```js
+							const cat = window.document.querySelector( '.cat-saying' );
+							cat.innerHTML = '<em>I love you!</em>';
+							```
+
+						</div>
+						<button onClick="changeCatSaying()">Charm Cat</button>
+
+						<div class="cat-saying">I, the cat, am your master.</div>
+					</section>
+
+					<section>
+					  <script>
+					    function createKitten() {
+							  const catBox = window.document.querySelector( '.create-kitten' );
+							  const cat = window.document.createElement( 'img' );
+							  cat.src = 'http://placekitten.com/g/200/200';
+							  catBox.appendChild( cat );
+					    }
+					  </script>
+						<div data-markdown>
+							### Creating DOM Nodes
+
+							It's also possible to create new Nodes!
+
+							<small>`window.document.body` is the Node that contains the HTML body.</small>
+
+							```js
+							const cat = window.document.createElement( 'img' );
+							cat.src = 'http://placekitten.com/g/200/200';
+							window.document.body.appendChild( cat );
+							```
+							</div>
+
+							<button onClick="createKitten()">Create Kitten</button>
+
+							<div class="create-kitten" style="height:200px;"></div>
+					</section>
+
+					<section>
+					  <script>
+					    function createCatText() {
+							  const catBox = document.querySelector('.create-cat');
+							  const cat = window.document.createTextNode( 'Meow!' );
+							  catBox.appendChild( cat );
+					    }
+					  </script>
+						<div data-markdown>
+							### Creating Text Nodes
+
+							If you want to create a Node that's just text, use `createTextNode()`
+
+							```js
+							const cat = window.document.createTextNode( 'Meow!' );
+							window.document.body.appendChild( cat );
+							```
+
+						</div>
+						<button onClick="createCatText()">Create Cat</button>
+
+						<div class="create-cat"></div>
+					</section>
+
+          <!-- MARK -->
           <section>
             <h3>DOM Access: By Selector</h3>
             <p>You can find a node by passing a CSS selector to the method:</p>
 <pre><code class="javascript">document.querySelector(selector);
 </code></pre>
           <p>For example, to find:</p>
-<pre><code class="html">&lt;img id="kittenPic" src="http://placekitten.com/g/200/300" alt="cat"/&gt;
+<pre><code class="html">&lt;img id="kitten-pic" src="http://placekitten.com/g/200/300" alt="cat"/&gt;
 </code></pre>
           <p>We would use:</p>
-<pre><code class="javascript">let imgKitten = document.querySelector('#kittenPic');
+<pre><code class="javascript">let imgKitten = document.querySelector('#kitten-pic');
 </code></pre>
           </section>
 
@@ -207,31 +485,16 @@ for (let i = 0; i &lt; listItems.length; i++) {
             <h3>DOM Nodes: Attributes</h3>
             <p>You can access and change attributes of DOM nodes using dot notation.</p><br>
             <p>To change this element:</p>
-<pre><code class="html">&lt;img id="kittenPic" src="http://placekitten.com/g/200/300" alt="cat"/&gt;
+<pre><code class="html">&lt;img id="kitten-pic" src="http://placekitten.com/g/200/300" alt="cat"/&gt;
 </code></pre>
             <p>We could change the src attribute this way:</p>
-<pre><code class="javascript">let imgKitten = document.querySelector('#kittenPic');
+<pre><code class="javascript">let imgKitten = document.querySelector('#kitten-pic');
 
 // will return src attribute on image
 imgKitten.src
 
 // will set our src to a new src
 imgKitten.src = 'http://placekitten.com/g/600/500';</code></pre>
-          </section>
-
-          <section>
-            <h3>DOM Nodes: Getting and Setting Attributes</h3>
-            <p>You can also use <code><a href="https://developer.mozilla.org/en-US/docs/Web/API/Element/getAttribute">getAttribute</a></code> or <code><a href="https://developer.mozilla.org/en-US/docs/Web/API/Element/setAttribute">setAttribute</a></code></p>
-<pre><code class="html">&lt;img id="kittenPic" src="http://placekitten.com/g/200/300" alt="cat"/&gt;
-</code></pre>
-          <p>We could change the src attribute this way:</p>
-<pre><code class="javascript">let imgKitten = document.querySelector('#kittenPic');
-
-// will return src attribute on image
-imgKitten.getAttribute('src');
-
-// will set our src to a new src
-imgKitten.setAttribute('src', 'http://placekitten.com/g/600/500');</code></pre>
           </section>
 
           <section>
