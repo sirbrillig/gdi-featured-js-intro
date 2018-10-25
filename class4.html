@@ -622,6 +622,8 @@ button {
   &lt;li&gt;Add items to this list using the form above&lt;/li&gt;
 &lt;/ul&gt;
 							```
+
+							Just make it so you can add text to the list.
 						</div>
 					</section>
 
@@ -640,11 +642,75 @@ button {
 
 					<section>
 						<div data-markdown>
-							### Adding Persistence
+							### A Better To-Do List
 
-							This is a more complex version that lets you add and delete to-do items and keeps them around.
+							In order to be able to manage your to-do list, you'll need to store the list in an array.
 
-							http://cdpn.io/e/dqBwyP
+							```js
+							let listItems = [];
+							```
+
+						</div>
+					</section>
+
+					<section>
+						<div data-markdown>
+							### Rendering the list
+
+							Once you have your data in an array, you can use a function to "render" (print) that array to the page.
+
+							```js
+							let listItems = [];
+
+							function addItem() {
+								const itemField = document.querySelector('#item-field');
+								const itemText = itemField.value;
+								listItems.push(itemText);
+								render(); // print the list to the page
+							}
+							```
+
+						</div>
+					</section>
+
+					<section>
+						<div data-markdown>
+							### Making a render function
+
+							The rendering function needs to do two things. First it needs to clear away the old list. Then it needs to print each item.
+
+							```js
+function render() {
+  const itemListElement = document.querySelector('#item-list');
+  itemListElement.innerHTML = ''; // clear existing list
+  for (let index = 0; index < listItems.length; index++) {
+    const newItem = document.createElement('li');
+    newItem.innerText = listItems[index];
+    itemListElement.appendChild(newItem);
+  }
+							```
+
+						</div>
+					</section>
+
+					<section>
+						<div data-markdown>
+							### Let's Develop It
+
+							Change your program to use a render function.
+
+							Bonus: add a delete button to each item.
+
+						</div>
+					</section>
+
+					<section>
+						<div data-markdown>
+							### Adding a Delete Button
+
+							This version lets you add and delete to-do items.
+
+							http://cdpn.io/e/VEqELW
 
 						</div>
 					</section>
